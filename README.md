@@ -15,6 +15,22 @@ A graphical package manager for various package formats for Termux and `proot-di
   - `pacman`
 
 
+### Installation
+
+#### GitHub
+
+Download a file from the [GitHub releases](https://github.com/tareksander/termux-gui-pm/releases).  
+Install python with `pkg install python`.  
+Install the Termux:GUI python bindings with `pip install termuxgui`.  
+Install the [Termux:GUI app](https://github.com/termux/termux-gui).
+
+
+
+### Dependencies
+
+- Python
+- `termuxgui` python package
+- The [Termux:GUI app](https://github.com/termux/termux-gui)
 
 
 ## License
