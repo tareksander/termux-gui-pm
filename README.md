@@ -1,5 +1,5 @@
 # termux-gui-pm
-A graphical package manager for various package formats for Termux.
+A graphical package manager for various package formats for Termux and `proot-distro` distros.
 
 
 
@@ -12,7 +12,7 @@ A graphical package manager for various package formats for Termux.
 - all of the above in `proot-distro` distros
 - supported package managers:
   - `apt`
-  - 
+  - `pacman`
 
 
 

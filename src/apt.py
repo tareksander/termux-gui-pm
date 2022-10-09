@@ -10,19 +10,19 @@ def list_processor(inp: str) -> List[str]:
 
 
 def extract_details(ret: str) -> Package:
-    name = re.search(r"Package: (.*)", ret)
+    name = re.search(r"^Package: (.*)", ret, re.MULTILINE)
     if name is not None:
         name = name.group(1)
-    desc = re.search(r"Description: (.*(?:\n .*)*)", ret)
+    desc = re.search(r"^Description: (.*(?:\n .*)*)", ret, re.MULTILINE)
     if desc is not None:
         desc = desc.group(1)
-    ver = re.search(r"Version: (.*)", ret)
+    ver = re.search(r"^Version: (.*)", ret, re.MULTILINE)
     if ver is not None:
         ver = ver.group(1)
-    main = re.search(r"Maintainer: (.*)", ret)
+    main = re.search(r"^Maintainer: (.*)", ret, re.MULTILINE)
     if main is not None:
         main = main.group(1)
-    dep = re.search(r"Depends: (.*)", ret)
+    dep = re.search(r"^Depends: (.*)", ret, re.MULTILINE)
     if dep is not None:
         dep = dep.group(1)
         dep = dep.split(", ")
@@ -53,6 +53,6 @@ class APT(PM):
         return SubprocessRequest(["apt-get", "update"], lambda inp: None)
 
     def upgrade(self) -> Request[None]:
-        return SubprocessRequest(["apt-get", "-y", "upgrade"], lambda inp: None)
+        return SubprocessRequest(["apt-get", "-y", "dist-upgrade"], lambda inp: None)
 
 
